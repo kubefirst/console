@@ -6,13 +6,13 @@ This is the Kubefirst Frontend project that shows all the Kubefirst installed se
 
 ## Setup Instructions
 
-- Clone down this repository. You will need `node` and `yarn` installed globally on your machine.
+- Clone this repository. You will need `node` and `yarn` installed globally on your machine.
 - Create a .env file in the root of the project
 - You can copy the env values from `.env.local.example` to have a local installation experience or you can use `.env.cluster.example` to have a cluster install experience.
 - Make sure you are using **NodeJS** >= v16.15.1
 - Install dependencies `yarn install`
-- Start the server `yarn start`
-- Go to `localhost:1234`
+- Start the server `yarn dev`
+- Go to `localhost:3000`
 - Enjoy 🥳🎉
 
 ## Publish Docker image to ECR

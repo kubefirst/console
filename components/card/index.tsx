@@ -13,7 +13,7 @@ import GitHubLogo from '../../assets/github.png';
 import VaultLogo from '../../assets/vault.png';
 import AtlantisLogo from '../../assets/atlantis.png';
 import MetaphorLogo from '../../assets/metaphor.png';
-import Popover from '../popover/index';
+import Popover from '../popover';
 
 import {
   CardContent,
@@ -106,16 +106,16 @@ const Card: FunctionComponent<ICardProps> = ({
   return (
     <Container data-testid="card-component">
       <CardContent>
-        <Image src={logoImage} alt={appName} />
+        <Image src={logoImage} alt={appName} width="68" height="100" />
         <TextHeader>
           <Text type={TYPES.TITLE}>{appName}</Text>
         </TextHeader>
         {links &&
-          links.map((domain) => {
+          links.map((domain, index) => {
             const link = getHostname(domain);
             return isMetaphor && !metaphorLinks.includes(domain) ? (
               <PopoverContainer
-                key={domain}
+                key={`${index}-${domain}`}
                 onClick={() => setMetaphorLinks((oldState) => [...oldState, domain])}
               >
                 <Popover
@@ -130,7 +130,7 @@ const Card: FunctionComponent<ICardProps> = ({
               <Link
                 href={domain}
                 target="_blank"
-                key={domain}
+                key={`${index}-${domain}`}
                 onClick={() => onClickLink(domain, appName)}
               >
                 <Text type={TYPES.DISABLED}>{getHostname(domain)}</Text>
@@ -141,9 +141,9 @@ const Card: FunctionComponent<ICardProps> = ({
       </CardContent>
       <Tags>
         {tags &&
-          tags.map(({ value, url, backgroundColor, color }) => (
+          tags.map(({ value, url, backgroundColor, color }, index) => (
             <Tag
-              key={value}
+              key={`${index}-${url}`}
               backgroundColor={backgroundColor}
               color={color}
               url={url}

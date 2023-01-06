@@ -2,32 +2,32 @@ import React from 'react';
 import styled from 'styled-components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import theme from '../../theme';
-
-import ProgressComponent from './index';
-
-const {
-  colors: { americanGreen, danger, yellowOrange },
-} = theme;
+import Progress from './';
 
 export default {
-  title: 'Components/Progresss',
-  component: ProgressComponent,
-} as ComponentMeta<typeof ProgressComponent>;
+  title: 'Components/Progress',
+  component: Progress,
+  parameters: {
+    steps: [],
+  },
+} as ComponentMeta<typeof Progress>;
 
 const Wrapper = styled.div`
+  background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 400px;
+  width: 100%;
 `;
 
-const Template: ComponentStory<typeof ProgressComponent> = () => (
+const DefaultTemplate: ComponentStory<typeof Progress> = (args) => (
   <Wrapper>
-    <ProgressComponent label="Sync Status" color={americanGreen} progress={100} />
-    <ProgressComponent label="Sync Status" color={yellowOrange} progress={50} />
-    <ProgressComponent label="Sync Status" color={danger} progress={10} />
+    <Progress {...args} />
   </Wrapper>
 );
 
-export const Progress = Template.bind({});
+export const Default = DefaultTemplate.bind({});
+Default.args = {
+  steps: ['Select platform', 'Readiness check', 'Set up cluster', 'Preparing', 'Ready'],
+  activeStep: 0,
+};

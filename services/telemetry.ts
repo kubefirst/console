@@ -8,17 +8,19 @@ type TelemetryProperties = {
 
 export const sendTelemetry = (event: string, properties?: TelemetryProperties) => {
   try {
-    const analytics = new Analytics(ANALYTICS_ID);
     const isTelemetryEnabled = process.env.USE_TELEMETRY === 'true';
+    const analytics = new Analytics(ANALYTICS_ID, {
+      enable: isTelemetryEnabled,
+    });
 
     if (isTelemetryEnabled) {
       const userId = process.env.HOSTED_ZONE_NAME || process.env.MACHINE_ID;
       analytics.identify({
-        userId: userId,
+        userId,
       });
 
       analytics.track({
-        userId: userId,
+        userId,
         event,
         properties: {
           isLocal: !process.env.HOSTED_ZONE_NAME,

@@ -1,7 +1,6 @@
 import NextImage from 'next/image';
 import styled from 'styled-components';
 
-import PasswordInput from '../password';
 import Text from '../text';
 import ThreeDotsIcon from '../../assets/dots.svg';
 
@@ -51,22 +50,6 @@ export const Image = styled(NextImage)`
   height: 100px;
   object-fit: contain;
   width: 68px;
-`;
-
-export const Password = styled(PasswordInput)`
-  & > div > div {
-    border: none;
-    justify-content: space-between;
-  }
-
-  & input {
-    padding-left: 0;
-  }
-`;
-
-export const PasswordTitle = styled(Text)`
-  align-items: center;
-  display: flex;
 `;
 
 export const Link = styled.a`

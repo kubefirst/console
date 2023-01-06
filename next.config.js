@@ -11,7 +11,7 @@ const nextConfig = {
     styledComponents: true,
   },
   experimental: {
-    fontLoaders: [{ loader: '@next/font/google', options: { display: 'swap' } }],
+    fontLoaders: [{ loader: '@next/font/google', options: { display: 'auto' } }],
   },
 };
 
