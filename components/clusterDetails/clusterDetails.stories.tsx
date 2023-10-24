@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { mockClusterConfig } from '../../tests/mocks/mockClusterConfig';
-import { ClusterType } from '../../types/provision';
+import { ClusterStatus, ClusterType } from '../../types/provision';
 
 import ClusterDetails from '.';
 
@@ -26,7 +26,13 @@ export const Default: StoryObj<typeof ClusterDetails> = {
         gitUser: 'D-B-Hawk',
       },
       type: mockClusterConfig.type as ClusterType,
-      environment: undefined,
+      environment: {
+        id: '1',
+        name: 'Demo',
+        color: 'dark-sky-blue',
+        description: 'Demo environment',
+      },
+      status: ClusterStatus.PROVISIONING,
     },
   },
 };

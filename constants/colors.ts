@@ -38,7 +38,6 @@ export const SPUN_PEARL = '#A1A1AA';
 export const ROYAL_PURPLE = '#6F37AE';
 export const MAGNOLIA = '#FAF5FF';
 export const FIRE_BRICK = '#B91C1C';
-export const DOLPHIN = '#3F3F46';
 export const QUARTZ = '#D4D4D8';
 export const ROCK_BLUE = '#94A3B8';
 export const MIDNIGHT_EXPRESS = '#252A41';

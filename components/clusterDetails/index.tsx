@@ -1,16 +1,6 @@
 import React, { ComponentPropsWithoutRef, FunctionComponent } from 'react';
+import styled from 'styled-components';
 import moment from 'moment';
-
-import Typography from '../../components/typography';
-import Row from '../../components/row';
-import Column from '../../components/column';
-import {
-  Cluster,
-  ClusterStatus,
-  ClusterType,
-  DraftCluster,
-  ManagementCluster,
-} from '../../types/provision';
 
 import {
   Container,
@@ -22,22 +12,40 @@ import {
   InfoIcon,
   Link,
   StatusContainer,
+  EnvInfo,
+  Info,
 } from './clusterDetails.styled';
+
+import Typography from '@/components/typography';
+import Column from '@/components/column';
+import {
+  Cluster,
+  ClusterStatus,
+  ClusterType,
+  DraftCluster,
+  ManagementCluster,
+} from '@/types/provision';
+import Tag from '@/components/tag';
+import { BISCAY, VOLCANIC_SAND } from '@/constants/colors';
+import { EnvMap } from '@/redux/slices/environments.slice';
 
 export interface ClusterDetailsProps extends Omit<ComponentPropsWithoutRef<'div'>, 'key'> {
   cluster: Cluster | DraftCluster;
   host: ManagementCluster['gitHost'];
   gitOwner: ManagementCluster['gitAuth']['gitOwner'];
+  environments: EnvMap;
 }
 
 const ClusterDetails: FunctionComponent<ClusterDetailsProps> = ({
   cluster,
   host,
   gitOwner,
+  environments,
   ...rest
 }) => {
   const {
     clusterName,
+    environment,
     adminEmail,
     cloudProvider,
     cloudRegion,
@@ -51,39 +59,53 @@ const ClusterDetails: FunctionComponent<ClusterDetailsProps> = ({
     gitAuth: { gitUser } = {},
   } = cluster;
 
-  const CLUSTER_REPO_BASE_LINK = `https://${host}/${gitOwner}`;
+  const CLUSTER_REPO_BASE_LINK = `https://${host}/${gitOwner}/gitops/tree/main`;
 
-  const presentedLink = `/gitops/tree/main/registry/clusters/${clusterName}`;
+  const presentedLink = `/registry/clusters/${clusterName}`;
+
+  const { name, color, description } = environments[environment?.id ?? ''] ?? {};
 
   return (
     <Container {...rest}>
-      <StatusContainer>
-        <Row>
-          <InfoIcon />
-        </Row>
-        <Column>
-          {status !== ClusterStatus.PROVISIONING ? (
-            <>
-              <Typography variant="body2">
-                The cluster has been registered and will be synced
-              </Typography>
-              <Typography variant="body2">
-                Provisioning details:{' '}
+      <EnvInfo>
+        <Typography variant="subtitle1" color={BISCAY}>
+          {clusterName}
+        </Typography>
+        {name && color && <Tag text={name} bgColor={color} />}
+        {description && (
+          <Typography variant="body2" color={VOLCANIC_SAND}>
+            {description}
+          </Typography>
+        )}
+        <StatusContainer>
+          <Column>
+            {status !== ClusterStatus.PROVISIONED ? (
+              <Info>
+                <InfoIcon />
+                <Column>
+                  <Typography variant="body2">
+                    The cluster has been registered and will be synced
+                  </Typography>
+                  <Typography variant="body2">
+                    Provisioning details:{' '}
+                    <Link target="_blank" href={CLUSTER_REPO_BASE_LINK + presentedLink}>
+                      {presentedLink}
+                    </Link>
+                  </Typography>
+                </Column>
+              </Info>
+            ) : (
+              <Typography>
+                Cluster details:{' '}
                 <Link target="_blank" href={CLUSTER_REPO_BASE_LINK + presentedLink}>
                   {presentedLink}
-                </Link>
+                </Link>{' '}
               </Typography>
-            </>
-          ) : (
-            <Typography>
-              Cluster details:{' '}
-              <Link target="_blank" href={CLUSTER_REPO_BASE_LINK + presentedLink}>
-                {presentedLink}
-              </Link>{' '}
-            </Typography>
-          )}
-        </Column>
-      </StatusContainer>
+            )}
+          </Column>
+        </StatusContainer>
+      </EnvInfo>
+
       <Content>
         {/* Top Row */}
         <RowInfo>
@@ -151,4 +173,4 @@ const ClusterDetails: FunctionComponent<ClusterDetailsProps> = ({
   );
 };
 
-export default ClusterDetails;
+export default styled(ClusterDetails)<ClusterDetailsProps>``;

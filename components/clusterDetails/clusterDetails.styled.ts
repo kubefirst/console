@@ -21,15 +21,21 @@ export const Container = styled(ColumnComponent)`
   gap: 24px;
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+export const Content = styled(ColumnComponent)`
+  gap: 24px;
 `;
 
 export const ColumnInfo = styled(ColumnComponent)`
   gap: 8px;
   justify-content: space-between;
+`;
+
+export const EnvInfo = styled(ColumnComponent)`
+  gap: 8px;
+`;
+
+export const Info = styled(RowComponent)`
+  gap: 8px;
 `;
 
 export const InfoIcon = styled(InfoOutlinedIcon)`
@@ -48,7 +54,6 @@ export const RowInfo = styled(RowComponent)`
 `;
 
 export const StatusContainer = styled(RowComponent)`
-  gap: 8px;
   padding: 16px;
   background-color: ${DR_WHITE};
   border: 1px solid ${CHEFS_HAT};
