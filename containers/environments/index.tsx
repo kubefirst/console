@@ -11,12 +11,13 @@ import Button from '../../components/button';
 import compDisplayImage from '../../assets/comp_display.svg';
 import useToggle from '../../hooks/useToggle';
 import Modal from '../../components/modal';
-import { CreateEnvironmentMenu } from '../../components/createEnvironmentMenu';
+import { EnvironmentMenu } from '../../components/environmentMenu';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import {
   createEnvironment,
   deleteEnvironment,
   getAllEnvironments,
+  updateEnvironment,
 } from '../../redux/thunks/environments.thunk';
 import EnvironmentsTable from '../../components/environmentsTable';
 import { ClusterEnvironment } from '../../types/provision';
@@ -27,6 +28,7 @@ import { noop } from '@/utils/noop';
 
 const Environments: FunctionComponent = () => {
   const { isOpen, close, open } = useToggle();
+  const [editing, setEditing] = useState(false);
 
   const [selectedEnv, setSelectedEnv] = useState<ClusterEnvironment>();
 
@@ -45,6 +47,24 @@ const Environments: FunctionComponent = () => {
         .catch(noop);
     },
     [dispatch, close],
+  );
+
+  const handleModalClose = useCallback(() => {
+    dispatch(clearEnvironmentError());
+    setSelectedEnv(undefined);
+    close();
+  }, [dispatch, close]);
+
+  const handleEditEnvironment = useCallback(
+    (env: ClusterEnvironment) => {
+      dispatch(updateEnvironment(env))
+        .unwrap()
+        .then(() => {
+          handleModalClose();
+        })
+        .catch(noop);
+    },
+    [dispatch, handleModalClose],
   );
 
   const handleEnvironmentDelete = useCallback(() => {
@@ -66,11 +86,6 @@ const Environments: FunctionComponent = () => {
     dispatch(clearEnvironmentError());
   }, [dispatch]);
 
-  const handleModalClose = useCallback(() => {
-    dispatch(clearEnvironmentError());
-    close();
-  }, [dispatch, close]);
-
   const handleDeleteEnv = useCallback(
     (id: string) => {
       if (environments[id]) {
@@ -78,6 +93,17 @@ const Environments: FunctionComponent = () => {
       }
     },
     [environments],
+  );
+
+  const handleEditEnv = useCallback(
+    (id: string) => {
+      if (environments[id]) {
+        setEditing(true);
+        setSelectedEnv(environments[id]);
+        open();
+      }
+    },
+    [environments, open],
   );
 
   useEffect(() => {
@@ -105,7 +131,7 @@ const Environments: FunctionComponent = () => {
         <EnvironmentsTable
           environments={environments}
           onDeleteEnvironment={handleDeleteEnv}
-          // onEditEnvironment={noop}
+          onEditEnvironment={handleEditEnv}
         />
       ) : (
         <DisplayContainer>
@@ -124,15 +150,16 @@ const Environments: FunctionComponent = () => {
         styleOverrides={{ width: '100%', maxWidth: '630px' }}
         onCloseModal={handleModalClose}
       >
-        <CreateEnvironmentMenu
-          onSubmit={handleAddEnvironment}
+        <EnvironmentMenu
+          onSubmit={editing ? handleEditEnvironment : handleAddEnvironment}
           onClose={close}
           previouslyCreatedEnvironments={environments}
           errorMessage={error}
           onErrorClose={handleErrorClose}
+          envToEdit={selectedEnv}
         />
       </Modal>
-      {selectedEnv && (
+      {selectedEnv && !editing && (
         <DeleteEnvironment
           isOpen={!!selectedEnv}
           environment={selectedEnv}

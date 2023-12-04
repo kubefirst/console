@@ -13,7 +13,7 @@ import ControlledTextArea from '../controlledFields/textArea';
 import { ClusterEnvironment } from '../../types/provision';
 import { EnvMap } from '../../redux/slices/environments.slice';
 
-import { CloseButton, Content, Footer, Header, Root } from './createEnvironmentMenu.styled';
+import { CloseButton, Content, Footer, Header, Root } from './environmentMenu.styled';
 
 const ENVIRONMENT_MENU_COLOR_OPTIONS: TagColor[] = [
   'gray',
@@ -26,33 +26,39 @@ const ENVIRONMENT_MENU_COLOR_OPTIONS: TagColor[] = [
   'purple',
 ];
 
-interface CreateEnvironmentMenuProps
-  extends Omit<ComponentPropsWithoutRef<'form'>, 'onSubmit' | 'key'> {
+interface EnvironmentMenuProps extends Omit<ComponentPropsWithoutRef<'form'>, 'onSubmit' | 'key'> {
   onSubmit: (environment: ClusterEnvironment) => void;
   onClose: () => void;
   previouslyCreatedEnvironments?: EnvMap;
   errorMessage?: string;
   onErrorClose?: () => void;
+  envToEdit?: ClusterEnvironment;
 }
 
-export const CreateEnvironmentMenu: FunctionComponent<CreateEnvironmentMenuProps> = ({
+export const EnvironmentMenu: FunctionComponent<EnvironmentMenuProps> = ({
   onSubmit,
   onClose,
   previouslyCreatedEnvironments = {},
   errorMessage,
   onErrorClose,
+  envToEdit,
   ...rest
 }) => {
   const {
     control,
     handleSubmit,
     formState: { isValid, errors },
-  } = useForm<ClusterEnvironment>({ mode: 'onBlur', defaultValues: { color: 'gray' } });
+  } = useForm<ClusterEnvironment>({
+    mode: 'onBlur',
+    defaultValues: envToEdit ?? { color: 'gray' },
+  });
 
   return (
     <Root {...rest} onSubmit={handleSubmit(onSubmit)}>
       <Header>
-        <Typography variant="h6">Create new environment</Typography>
+        <Typography variant="h6">
+          {envToEdit ? 'Edit Environment' : 'Create new environment'}
+        </Typography>
         <CloseButton type="button" onClick={onClose}>
           <CloseIcon style={{ margin: 0, color: SALTBOX_BLUE }} />
         </CloseButton>
@@ -78,6 +84,7 @@ export const CreateEnvironmentMenu: FunctionComponent<CreateEnvironmentMenuProps
           }}
           control={control}
           onErrorText={errors.name?.message}
+          readOnly={!!envToEdit}
         />
         <ControlledTextArea
           name="description"
@@ -108,7 +115,7 @@ export const CreateEnvironmentMenu: FunctionComponent<CreateEnvironmentMenuProps
           Cancel
         </Button>
         <Button type="submit" color="primary" variant="contained" disabled={!isValid}>
-          Create environment
+          {envToEdit ? 'Save' : 'Create environment'}
         </Button>
       </Footer>
     </Root>

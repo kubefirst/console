@@ -34,6 +34,7 @@ export const Default: Story = {
     label: 'Default',
     fullWidth: true,
     helperText: 'test',
+    readOnly: false,
   },
 };
 

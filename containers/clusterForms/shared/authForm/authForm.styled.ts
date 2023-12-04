@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import { BISCAY } from '../../../../constants/colors';
+import { BISCAY, SNOW } from '../../../../constants/colors';
 
 export const GitContainer = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ export const FormContainer = styled.div<{ isVisible?: boolean }>`
 export const GitUserField = styled.div``;
 
 export const GitUserFieldInput = styled.div`
-  background-color: #fafafa;
+  background-color: ${SNOW};
   border-radius: 4px;
   color: ${({ theme }) => theme.colors.volcanicSand};
   height: 20px;

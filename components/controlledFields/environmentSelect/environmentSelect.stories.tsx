@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 
-import { CreateEnvironmentMenu } from '../../createEnvironmentMenu';
+import { EnvironmentMenu } from '../../environmentMenu';
 import Modal from '../../modal';
 import useModal from '../../../hooks/useModal';
 import { ClusterEnvironment } from '../../../types/provision';
@@ -62,7 +62,7 @@ const ControlledEnvironmentSelectWithHooks = () => {
         styleOverrides={{ width: '100%', maxWidth: '630px' }}
         onCloseModal={closeModal}
       >
-        <CreateEnvironmentMenu
+        <EnvironmentMenu
           onSubmit={handleAddEnvironment}
           onClose={closeModal}
           previouslyCreatedEnvironments={environments}

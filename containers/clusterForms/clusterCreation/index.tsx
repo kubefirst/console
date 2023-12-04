@@ -31,7 +31,7 @@ import { updateDraftCluster } from '@/redux/slices/api.slice';
 import ControlledEnvironmentSelect from '@/components/controlledFields/environmentSelect';
 import Modal from '@/components/modal';
 import useModal from '@/hooks/useModal';
-import { CreateEnvironmentMenu } from '@/components/createEnvironmentMenu';
+import { EnvironmentMenu } from '@/components/environmentMenu';
 import LearnMore from '@/components/learnMore';
 import { createEnvironment } from '@/redux/thunks/environments.thunk';
 import { noop } from '@/utils/noop';
@@ -231,7 +231,7 @@ const ClusterCreationForm: FunctionComponent<Omit<ComponentPropsWithoutRef<'div'
           styleOverrides={{ width: '100%', maxWidth: '630px' }}
           onCloseModal={handleModalClose}
         >
-          <CreateEnvironmentMenu
+          <EnvironmentMenu
             onSubmit={handleAddEnvironment}
             onClose={closeModal}
             previouslyCreatedEnvironments={environments}

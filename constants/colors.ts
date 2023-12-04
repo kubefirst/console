@@ -61,6 +61,7 @@ export const DODGER_BLUE = '#3B82F6';
 export const BUBBLE_GUM_BABY_GIRL = '#D452E7';
 export const LAVENDER = '#818CF8';
 export const CELERY_MOUSSE = '#D1FF96';
+export const SNOW = '#FAFAFA';
 
 export const ANSI_COLORS = {
   black: '\x1b[30m',

@@ -54,13 +54,13 @@ const MyButton = styled.button<{ selected?: boolean }>`
 interface EnvironmentRowProps {
   environment: ClusterEnvironment;
   onDeleteEnvironment: (envId: string) => void;
-  // onEditEnvironment: () => void;
+  onEditEnvironment: (envId: string) => void;
 }
 
 const EnvironmentRow: FunctionComponent<EnvironmentRowProps> = ({
   environment,
   onDeleteEnvironment,
-  // onEditEnvironment,
+  onEditEnvironment,
 }) => {
   const { id, name, description, color, creationDate } = environment;
   const { isOpen, close, toggle } = useToggle();
@@ -89,11 +89,11 @@ const EnvironmentRow: FunctionComponent<EnvironmentRowProps> = ({
             <ClickAwayListener onClickAway={close}>
               <Menu>
                 <List>
-                  {/* <ListItem disablePadding>
-                  <ListItemButton onClick={onEditEnvironment}>
-                    <Typography variant="body2">Edit</Typography>
-                  </ListItemButton>
-                </ListItem> */}
+                  <ListItem disablePadding>
+                    <ListItemButton onClick={() => onEditEnvironment(id)}>
+                      <Typography variant="body2">Edit</Typography>
+                    </ListItemButton>
+                  </ListItem>
                   <ListItem disablePadding>
                     <ListItemButton onClick={() => onDeleteEnvironment(id)}>
                       <Typography variant="body2" style={{ color: `${FIRE_BRICK}` }}>
@@ -180,14 +180,14 @@ const EnvironmentTableHead: FunctionComponent<EnvironmentTableHeadProps> = ({
 interface EnvironmentsTableProps extends Omit<ComponentPropsWithRef<'tbody'>, 'key'> {
   environments: EnvMap;
   onDeleteEnvironment: (envId: string) => void;
+  onEditEnvironment: (envId: string) => void;
   customRef?: React.Ref<HTMLTableSectionElement>;
-  // onEditEnvironment: () => void;
 }
 
 export const EnvironmentsTable: FunctionComponent<EnvironmentsTableProps> = ({
   environments,
   onDeleteEnvironment,
-  // onEditEnvironment,
+  onEditEnvironment,
   customRef,
 }) => {
   const [orderBy, setOrderBy] = useState<EnvKey>('creationDate');
@@ -215,7 +215,7 @@ export const EnvironmentsTable: FunctionComponent<EnvironmentsTableProps> = ({
               key={environment.name}
               environment={environment}
               onDeleteEnvironment={onDeleteEnvironment}
-              // onEditEnvironment={onEditEnvironment}
+              onEditEnvironment={onEditEnvironment}
             />
           ))}
         </StyledTableBody>

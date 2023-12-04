@@ -17,6 +17,7 @@ export default meta;
 export const Default: StoryObj<typeof EnvironmentsTable> = {
   args: {
     onDeleteEnvironment: noop,
+    onEditEnvironment: noop,
     environments: mockEnvironments,
   },
 };

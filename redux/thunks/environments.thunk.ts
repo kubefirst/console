@@ -46,6 +46,39 @@ export const createEnvironment = createAsyncThunk<ClusterEnvironment, ClusterEnv
   },
 );
 
+export const updateEnvironment = createAsyncThunk<ClusterEnvironment, ClusterEnvironment>(
+  'environments/updateEnvironment',
+  async (environment, { dispatch }) => {
+    const { id, description, color } = environment;
+
+    try {
+      await axios.put<EnvironmentResponse>('/api/proxy', {
+        url: `/environment/${id}`,
+        body: { description, color },
+      });
+
+      dispatch(
+        createNotification({
+          message: 'Edits have been successfully applied.',
+          type: 'success',
+          snackBarOrigin: {
+            vertical: 'bottom',
+            horizontal: 'right',
+          },
+        }),
+      );
+
+      return environment;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw error.response?.data.error;
+      } else {
+        throw error;
+      }
+    }
+  },
+);
+
 export const deleteEnvironment = createAsyncThunk<ClusterEnvironment['id'], ClusterEnvironment>(
   'environments/deleteEnvironment',
   async (environment, { dispatch }) => {

@@ -7,12 +7,13 @@ import { Container } from './header.styled';
 
 import { setSelectedCluster } from '@/redux/slices/cluster.slice';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
+import { ROCK_BLUE, SNOW } from '@/constants/colors';
 
 function stringAvatar(name?: string | null) {
   return {
     sx: {
-      bgcolor: '#FAFAFA',
-      color: '#94A3B8',
+      bgcolor: SNOW,
+      color: ROCK_BLUE,
     },
     children: `${name && name[0]}`,
   };

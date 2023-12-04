@@ -5,6 +5,7 @@ import {
   createEnvironment,
   deleteEnvironment,
   getAllEnvironments,
+  updateEnvironment,
 } from '../thunks/environments.thunk';
 import { EnvCache } from '../../types/redux';
 
@@ -77,6 +78,17 @@ const environmentsSlice = createSlice({
       .addCase(deleteEnvironment.fulfilled, (state, { payload: envId }) => {
         state.loading = false;
         delete state.environments[envId];
+      })
+      .addCase(updateEnvironment.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateEnvironment.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(updateEnvironment.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.environments[payload.id] = payload;
       });
   },
 });

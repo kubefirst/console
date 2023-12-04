@@ -10,6 +10,7 @@ export interface ControlledTextFieldProps<T extends FieldValues> extends UseCont
   control: Control<T>;
   helperText?: string;
   onErrorText?: string;
+  readOnly?: boolean;
 }
 
 function ControlledTextField<T extends FieldValues>({
@@ -37,6 +38,7 @@ function ControlledTextField<T extends FieldValues>({
           label={label}
           error={isBlur && error !== undefined}
           helperText={error && isBlur ? props.onErrorText : props.helperText}
+          readOnly={props.readOnly}
         />
       )}
     />
