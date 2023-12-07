@@ -15,6 +15,10 @@ export const Container = styled.div`
   width: calc(100% - 30px);
 `;
 
+export const Link = styled.a`
+  text-decoration: none;
+`;
+
 export const Search = styled.div`
   align-items: center;
   border-radius: 4px;

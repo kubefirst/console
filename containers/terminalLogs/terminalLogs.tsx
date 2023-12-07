@@ -3,6 +3,7 @@ import React, {
   FunctionComponent,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -25,9 +26,17 @@ import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { CLUSTER_CHECKS } from '../../constants/cluster';
 import { ANSI_COLORS, ECHO_BLUE, LIBERTY_BLUE } from '../../constants/colors';
 
-import { Container, Search, SearchTextField, TerminalView, Tools } from './terminalLogs.styled';
+import {
+  Container,
+  Link,
+  Search,
+  SearchTextField,
+  TerminalView,
+  Tools,
+} from './terminalLogs.styled';
 
 import 'xterm/css/xterm.css';
+import { InstallationType } from '@/types/redux';
 
 const UNSCAPE_STRING_REGEX = /\\x([0-9A-Fa-f]{2})/g;
 const SEARCH_OPTIONS = { caseSensitive: false };
@@ -47,13 +56,9 @@ const TerminalLogs: FunctionComponent = () => {
   const terminalRef = useRef(null);
   const searchAddonRef = useRef<SearchAddon>();
   const dispatch = useAppDispatch();
-  const {
-    api: { managementCluster, completedSteps },
-  } = useAppSelector(({ config, api, installation }) => ({
-    installation,
-    config,
-    api,
-  }));
+  const { managementCluster, completedSteps, installType } = useAppSelector(
+    ({ api, installation }) => ({ ...api, ...installation }),
+  );
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -75,6 +80,16 @@ const TerminalLogs: FunctionComponent = () => {
       searchAddonRef.current = searchAddon;
     }
   }, []);
+
+  const docCloudProviderString = useMemo(
+    () =>
+      installType === InstallationType.DIGITAL_OCEAN
+        ? 'do'
+        : installType === InstallationType.GOOGLE
+        ? 'gcp'
+        : installType,
+    [installType],
+  );
 
   useEffect(() => {
     if (terminalRef.current) {
@@ -212,7 +227,12 @@ const TerminalLogs: FunctionComponent = () => {
           />
         </Search>
         <Tooltip title="Help documentation" placement="top">
-          <HelpOutlineIcon htmlColor={ECHO_BLUE} />
+          <Link
+            href={`https://docs.kubefirst.io/${docCloudProviderString}/overview`}
+            target="_blank"
+          >
+            <HelpOutlineIcon htmlColor={ECHO_BLUE} />
+          </Link>
         </Tooltip>
         <CopyToClipboard text={logs.join('\n')}>
           <Tooltip title="Copy" placement="top">

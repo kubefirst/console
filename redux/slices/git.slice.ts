@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { GithubUser, GithubUserOrganization } from '../../types/github/index';
 import {
   getGithubUser,
   getGithubUserOrganizations,
@@ -10,9 +9,10 @@ import {
   getGitlabUser,
   getGitLabSubgroups,
   getGitLabProjects,
-} from '../thunks/git.thunk';
-import { GitLabGroup, GitLabUser } from '../../types/gitlab';
-import { KUBEFIRST_REPOSITORIES, KUBEFIRST_TEAMS } from '../../constants';
+} from '@/redux/thunks/git.thunk';
+import { GitLabGroup, GitLabUser } from '@/types/gitlab';
+import { GithubUser, GithubUserOrganization } from '@/types/github/index';
+import { KUBEFIRST_REPOSITORIES, KUBEFIRST_TEAMS } from '@/constants';
 import { createGitOrgErrorMessage } from '@/utils/createGitOrgErrorMessage';
 import { GitProvider } from '@/types';
 
