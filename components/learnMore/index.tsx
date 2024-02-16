@@ -8,7 +8,7 @@ import { ITypographyProps, Variant } from '../typography';
 import { Text } from './learnMore.styled';
 
 export interface LearnMoreProps extends Omit<ITypographyProps, 'variant' | 'children'> {
-  description: string;
+  description: string | React.ReactNode;
   href: string;
   linkTitle: string;
   installType?: InstallationType;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { Control, Controller, FieldValues, UseControllerProps } from 'react-hook-form';
 
 import Autocomplete from '../../autocomplete/index';
@@ -18,7 +18,7 @@ export interface ControlledAutocompleteProps<T extends FieldValues> extends UseC
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   filterOptions?: (options: any[]) => any[];
   onChange?: (value: string) => void;
-  options: Array<{ value: string; label: string }>;
+  options: Array<{ value: string; label: string; icon?: string | ReactNode }>;
   onClick?: () => void;
 }
 

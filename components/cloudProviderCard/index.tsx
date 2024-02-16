@@ -15,7 +15,7 @@ import { BISCAY } from '../../constants/colors';
 
 import { CardContainer, DetailsContainer, Link, LabelContainer } from './cloudProviderCard.styled';
 
-const PROVIDER_OPTIONS: Record<
+export const PROVIDER_OPTIONS: Record<
   InstallationType,
   {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

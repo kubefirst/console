@@ -39,12 +39,14 @@ interface InstallationInfoCardProps {
   info: InstallationInfo;
   installationType?: InstallationType;
   isMarketplace?: boolean;
+  hideCta?: boolean;
 }
 
 const InstallationInfoCard: FunctionComponent<InstallationInfoCardProps> = ({
   info,
   installationType,
   isMarketplace = false,
+  hideCta = false,
   ...rest
 }) => {
   const { title, description, code, ctaLink, ctaDescription } = info;
@@ -100,7 +102,7 @@ const InstallationInfoCard: FunctionComponent<InstallationInfoCardProps> = ({
           </CopyToClipboard>
         </Code>
       )}
-      {ctaLink && (
+      {ctaLink && !hideCta && (
         <Link
           href={{
             pathname: ctaLink,

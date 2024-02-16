@@ -1,15 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import {
+  getCloudAccounts,
   getClusterServices,
   getGitOpsCatalogApps,
   installGitOpsApp,
 } from '@/redux/thunks/cluster.thunk';
 import { ManagementCluster, ClusterServices, WorkloadCluster } from '@/types/provision';
 import { GitOpsCatalogApp } from '@/types/gitOpsCatalog';
+import { CloudAccount } from '@/types/cloudAccount';
 
 export interface ConfigState {
   selectedCluster?: ManagementCluster | WorkloadCluster;
+  cloudAccounts: Array<CloudAccount>;
   clusterServices: Array<ClusterServices>;
   gitOpsCatalogApps: Array<GitOpsCatalogApp>;
   appsQueue: Array<string>;
@@ -18,6 +21,7 @@ export interface ConfigState {
 export const initialState: ConfigState = {
   selectedCluster: undefined,
   clusterServices: [],
+  cloudAccounts: [],
   gitOpsCatalogApps: [],
   appsQueue: [],
 };
@@ -72,6 +76,15 @@ const clusterSlice = createSlice({
       )
       .addCase(getGitOpsCatalogApps.rejected, (state) => {
         state.gitOpsCatalogApps = [];
+      })
+      .addCase(
+        getCloudAccounts.fulfilled,
+        (state, { payload }: PayloadAction<Array<CloudAccount>>) => {
+          state.cloudAccounts = payload;
+        },
+      )
+      .addCase(getCloudAccounts.rejected, (state) => {
+        state.cloudAccounts = [];
       });
   },
 });

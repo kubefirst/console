@@ -1,11 +1,12 @@
-import React, { ForwardedRef, FunctionComponent, useMemo } from 'react';
+import React, { ForwardedRef, FunctionComponent, ReactNode, useMemo } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import AddIcon from '@mui/icons-material/Add';
 import AutocompleteMUI from '@mui/material/Autocomplete';
 import { SxProps } from '@mui/system';
 import { ControllerRenderProps, FieldValues } from 'react-hook-form';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { InputLabel } from '@mui/material';
+import { Box, InputLabel } from '@mui/material';
+import Image from 'next/image';
 
 import TextField from '../textField';
 import Column from '../column';
@@ -32,7 +33,7 @@ export interface IAutocompleteProps extends ControllerRenderProps<FieldValues> {
   inputRef?: ForwardedRef<unknown>;
   loading?: boolean;
   noOptionsText?: string;
-  options: Array<{ value: string; label: string }>;
+  options: Array<{ value: string; label: string; icon?: string | ReactNode }>;
   placeholder?: string;
   sx?: SxProps;
   error?: boolean;
@@ -77,27 +78,46 @@ const AutocompleteComponent: FunctionComponent<IAutocompleteProps> = ({
       }}
       {...props}
       isOptionEqualToValue={(option: string, value: string) => option === value}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          ref={params.InputProps.ref}
-          required={required}
-          placeholder={placeholder}
-          error={error}
-          endAdornment={
-            <InputAdornmentContainer position="end">
-              {loading ? (
-                <CircularProgress color="inherit" size={14} />
-              ) : (
-                params.InputProps.endAdornment
-              )}
-            </InputAdornmentContainer>
-          }
-          value={value}
-          label={label}
-          onClick={onClick}
-        />
+      renderOption={(props, option) => (
+        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+          {option.icon && <Image src={option.icon} alt={option.label} width={26} height={16} />}
+          {option.label}
+        </Box>
       )}
+      renderInput={(params) => {
+        const option = options.find(
+          ({ label: optionValue }) => optionValue === params?.inputProps.value,
+        );
+
+        return (
+          <>
+            <TextField
+              {...params}
+              ref={params.InputProps.ref}
+              required={required}
+              placeholder={placeholder}
+              error={error}
+              startAdornment={
+                option?.icon && (
+                  <Image src={option?.icon as string} alt={label} width={26} height={16} />
+                )
+              }
+              endAdornment={
+                <InputAdornmentContainer position="end">
+                  {loading ? (
+                    <CircularProgress color="inherit" size={14} />
+                  ) : (
+                    params.InputProps.endAdornment
+                  )}
+                </InputAdornmentContainer>
+              }
+              value={value}
+              label={label}
+              onClick={onClick}
+            />
+          </>
+        );
+      }}
     />
   );
 };

@@ -221,7 +221,10 @@ export const INSTALLATION_TYPE_API_KEYS: Record<InstallationType, AuthKeys | nul
       },
     ],
   },
-  [InstallationType.GOOGLE]: null,
+  [InstallationType.GOOGLE]: {
+    authKey: 'aws_auth',
+    fieldKeys: [],
+  },
 };
 
 export const DEFAULT_STEPS = [

@@ -1,8 +1,11 @@
 'use client';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
+
+import awsLogo from '../../assets/aws_logo.svg';
+import civoLogo from '../../assets/civo_logo.svg';
 
 import AutoComplete from './index';
 
@@ -20,6 +23,19 @@ const Wrapper = styled.div`
   width: 200px;
 `;
 
+const OPTIONS_WITH_ICON = [
+  {
+    label: 'us-east-1',
+    value: 'us-east-1',
+    icon: civoLogo,
+  },
+  {
+    label: 'us-west-1',
+    value: 'us-west-1',
+    icon: awsLogo,
+  },
+];
+
 const OPTIONS = [
   {
     label: 'us-east-1',
@@ -31,7 +47,11 @@ const OPTIONS = [
   },
 ];
 
-const AutoCompleteWithHooks = () => {
+const AutoCompleteWithHooks = ({
+  options,
+}: {
+  options: Array<{ label: string; value: string; icon?: string | ReactNode }>;
+}) => {
   const { control } = useForm();
   return (
     <Wrapper>
@@ -45,7 +65,7 @@ const AutoCompleteWithHooks = () => {
             placeholder="Search"
             loading
             label="Autocomplete"
-            options={OPTIONS}
+            options={options}
           />
         )}
       />
@@ -54,5 +74,9 @@ const AutoCompleteWithHooks = () => {
 };
 
 export const Default: StoryObj<typeof AutoCompleteWithHooks> = {
-  render: () => <AutoCompleteWithHooks />,
+  render: () => <AutoCompleteWithHooks options={OPTIONS} />,
+};
+
+export const DefaultWithIcon: StoryObj<typeof AutoCompleteWithHooks> = {
+  render: () => <AutoCompleteWithHooks options={OPTIONS_WITH_ICON} />,
 };

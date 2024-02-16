@@ -9,6 +9,8 @@ import { addAppToQueue, removeAppFromQueue } from '../slices/cluster.slice';
 import { transformObjectToStringKey } from '../../utils/transformObjectToStringKey';
 import { createNotification } from '../../redux/slices/notifications.slice';
 
+import { CloudAccount } from '@/types/cloudAccount';
+
 export const installGitOpsApp = createAsyncThunk<
   GitOpsCatalogApp,
   GitOpsCatalogProps,
@@ -96,4 +98,83 @@ export const getGitOpsCatalogApps = createAsyncThunk<
     throw res.error;
   }
   return res.data?.apps;
+});
+
+export const getCloudAccounts = createAsyncThunk<Array<CloudAccount>, string, { state: RootState }>(
+  'cluster/getCloudAccounts',
+  async (clusterName) => {
+    return (
+      await axios.get<{ cloud_accounts: Array<CloudAccount> }>(
+        `/api/proxy?${createQueryString('url', `/secret/${clusterName}/cloud-accounts`)}`,
+      )
+    ).data.cloud_accounts;
+  },
+);
+
+export const updateCloudAccounts = createAsyncThunk<
+  void,
+  { clusterName: string; cloudAccounts: Array<CloudAccount> },
+  { state: RootState }
+>('cluster/updateClusterTourStatus', async ({ clusterName, cloudAccounts }) => {
+  await axios.put<void>('/api/proxy', {
+    url: `/secret/${clusterName}/cloud-accounts`,
+    body: {
+      name: 'cloud-accounts',
+      cloud_accounts: cloudAccounts,
+    },
+  });
+});
+
+export const createCloudAccounts = createAsyncThunk<
+  void,
+  { clusterName: string; cloudAccounts: Array<CloudAccount> },
+  { state: RootState }
+>('cluster/createCloudAccounts', async ({ clusterName, cloudAccounts }) => {
+  await axios.post<void>('/api/proxy', {
+    url: `/secret/${clusterName}/cloud-accounts`,
+    body: {
+      name: 'cloud-accounts',
+      cloud_accounts: cloudAccounts,
+    },
+  });
+});
+
+export const getSecret = createAsyncThunk<
+  void,
+  { clusterName: string; secretName: string },
+  { state: RootState }
+>('cluster/getSecret', async ({ clusterName, secretName }) => {
+  await axios.get<void>('/api/proxy', {
+    url: `/secret/${clusterName}/${secretName}`,
+  });
+});
+
+export const createSecret = createAsyncThunk<
+  void,
+  { clusterName: string; cloudAccount: CloudAccount },
+  { state: RootState }
+>('cluster/createSecret', async ({ clusterName, cloudAccount }) => {
+  const authValues = cloudAccount.auth && cloudAccount.auth[cloudAccount.type];
+
+  await axios.post<void>('/api/proxy', {
+    url: `/secret/${clusterName}/${cloudAccount.name}`,
+    body: {
+      ...authValues,
+    },
+  });
+});
+
+export const updateSecret = createAsyncThunk<
+  void,
+  { clusterName: string; cloudAccount: CloudAccount },
+  { state: RootState }
+>('cluster/updateSecret', async ({ clusterName, cloudAccount }) => {
+  const authValues = cloudAccount.auth && cloudAccount.auth[cloudAccount.type];
+
+  await axios.put<void>('/api/proxy', {
+    url: `/secret/${clusterName}/${cloudAccount.name}`,
+    body: {
+      ...authValues,
+    },
+  });
 });
