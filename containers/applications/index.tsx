@@ -5,7 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import sortBy from 'lodash/sortBy';
 import { useSession } from 'next-auth/react';
 
-import Application from '../application';
+import Application from '../Application';
 import GitOpsCatalog from '../gitOpsCatalog';
 import TabPanel, { Tab, a11yProps } from '../../components/tab';
 import Typography from '../../components/typography';
