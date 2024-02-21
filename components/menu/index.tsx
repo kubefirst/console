@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
-import Typography from '../typography';
+import Typography from '../Typography/Typography';
 import { VOLCANIC_SAND } from '../../constants/colors';
 
 export interface MenuProps {

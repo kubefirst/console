@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 
 import { textTruncate } from '@/utils/theme';
 import { PASTEL_LIGHT_BLUE } from '@/constants/colors';
-import Typography from '@/components/typography';
+import Typography from '@/components/Typography/Typography';
 import styled, { css } from '@/app/lib/styled-components';
 
 export const AppConnector = styled.div`

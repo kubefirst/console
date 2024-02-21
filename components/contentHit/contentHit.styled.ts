@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import Typography from '../../components/typography';
+import Typography from '../Typography/Typography';
 import { textTruncate } from '../../utils/theme';
 
 export const Container = styled.div`

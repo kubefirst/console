@@ -1,8 +1,8 @@
 'use client';
 import styled from 'styled-components';
 
-import Row from '../../../../components/row';
-import FormContainer from '../../../../components/formContainer';
+import Row from '@/components/Row/Row';
+import FormContainer from '@/components/FormContainer/FormContainer';
 
 export const Form = styled(FormContainer)`
   gap: 32px;

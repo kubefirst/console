@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import ClusterRunningMessage from '../shared/clusterRunning';
-import TerminalLogs from '../../terminalLogs';
+import TerminalLogs from '../../TerminalLogs/NoSSRTerminal';
 import { LocalFormStep } from '../../../constants/installation';
 
 import { LocalSetupForm } from './setupForm';

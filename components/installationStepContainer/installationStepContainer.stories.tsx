@@ -7,7 +7,7 @@ import { useInstallation } from '../../hooks/useInstallation';
 import useStep from '../../hooks/useStep';
 import { InstallationType } from '../../types/redux';
 
-import InstallationStepContainer from '.';
+import InstallationStepContainer from './InstallationStepContainer';
 
 const meta: Meta<typeof InstallationStepContainer> = {
   component: InstallationStepContainer,

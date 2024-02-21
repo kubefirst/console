@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 import NextLink from 'next/link';
 
-import Card from '../card';
-import Column from '../column';
+import Card from '../Card/Card';
+import Column from '../Column/Column';
 
 export const CardContainer = styled(Card)`
   display: flex;

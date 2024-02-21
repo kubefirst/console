@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import InstallationCard from '.';
+import InstallationCard from './InstallationCard';
 
 const meta: Meta<typeof InstallationCard> = {
   title: 'Components/InstallationCard',

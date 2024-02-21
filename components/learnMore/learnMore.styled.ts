@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import Typography from '../typography';
+import Typography from '../Typography/Typography';
 
 export const Text = styled(Typography)`
   color: ${({ theme }) => theme.colors.spunPearl};

@@ -8,8 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import TableBody, { tableBodyClasses } from '@mui/material/TableBody';
 import { typographyClasses } from '@mui/material/Typography';
 
-import Row from '../row';
-import Typography from '../typography';
+import Row from '../Row/Row';
+import Typography from '../Typography/Typography';
 import {
   CHEFS_DARK_HAT,
   CHEFS_HAT,

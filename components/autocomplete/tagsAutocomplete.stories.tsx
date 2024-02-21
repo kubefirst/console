@@ -3,7 +3,7 @@ import React, { FunctionComponent, useCallback, useEffect } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 
-import ControlledTagsAutocomplete from '../controlledFields/autoComplete/TagsAutoComplete';
+import ControlledTagsAutocomplete from '../controlledFields/ControlledAutocomplete/ControlledTagsAutoComplete';
 
 import { createEnvMap } from '@/utils/createEnvMap';
 import { mockEnvironmentsResponse } from '@/tests/mocks/mockEnvironmentsResponse';

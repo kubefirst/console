@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { noop } from '../../utils/noop';
 
-import InstallationButtons from '.';
+import InstallationButtons from './InstallationButtons';
 
 const meta: Meta<typeof InstallationButtons> = {
   component: InstallationButtons,

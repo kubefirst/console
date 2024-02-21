@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import ApplicationsFilter from '.';
+import ApplicationsFilter from './ApplicationsFilter';
 
 const meta: Meta<typeof ApplicationsFilter> = {
   component: ApplicationsFilter,

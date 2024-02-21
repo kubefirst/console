@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import Column from '../column';
-import Row from '../row';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
 
 export const CardContent = styled(Column)`
   align-items: center;

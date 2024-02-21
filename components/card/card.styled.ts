@@ -1,4 +1,4 @@
-import { CardProps } from '.';
+import { CardProps } from './Card';
 
 import styled, { css } from '@/app/lib/styled-components';
 

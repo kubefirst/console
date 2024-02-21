@@ -2,9 +2,9 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 import useModal from '../../hooks/useModal';
-import Button from '../button';
+import Button from '../Button/Button';
 
-import UpgradeModalComponent from '.';
+import UpgradeModalComponent from './UpgradeModal';
 
 const meta: Meta<typeof UpgradeModal> = {
   component: UpgradeModalComponent,

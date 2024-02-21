@@ -1,4 +1,4 @@
-import { TagColor, TagIconOption } from '@/components/tag';
+import { TagColor, TagIconOption } from '@/components/Tag/Tag';
 import { ClusterStatus, ClusterType } from '@/types/provision';
 import { InstallationType } from '@/types/redux';
 import { GitProvider } from '@/types';

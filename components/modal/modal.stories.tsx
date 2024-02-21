@@ -3,10 +3,10 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
-import Button from '../../components/button';
+import Button from '../Button/Button';
 import useModal from '../../hooks/useModal';
 
-import Modal from './index';
+import Modal from './Modal';
 
 const meta: Meta<typeof Modal> = {
   component: Modal,

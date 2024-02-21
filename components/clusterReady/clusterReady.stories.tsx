@@ -1,7 +1,7 @@
 import { noop } from 'lodash';
 import { Meta, StoryObj } from '@storybook/react';
 
-import ClusterReady from '.';
+import ClusterReady from './ClusterReady';
 
 const meta: Meta<typeof ClusterReady> = {
   component: ClusterReady,

@@ -1,4 +1,4 @@
-import Column from '@/components/column';
+import Column from '@/components/Column/Column';
 import { PASTEL_LIGHT_BLUE } from '@/constants/colors';
 import styled, { css } from '@/app/lib/styled-components';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import sortBy from 'lodash/sortBy';
 
-import Subscription from '@/containers/subscription';
+import Subscription from '@/containers/Subscription/Subscription';
 import { Plan } from '@/types/plan';
 
 async function getProductPlans() {

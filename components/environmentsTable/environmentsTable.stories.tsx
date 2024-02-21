@@ -4,7 +4,7 @@ import { mockEnvironmentsResponse } from '../../tests/mocks/mockEnvironmentsResp
 import { noop } from '../../utils/noop';
 import { createEnvMap } from '../../utils/createEnvMap';
 
-import EnvironmentsTable from './';
+import EnvironmentsTable from './EnvironmentsTable';
 
 const mockEnvironments = createEnvMap(mockEnvironmentsResponse);
 

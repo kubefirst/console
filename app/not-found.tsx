@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 import { styled as muiStyled } from '@mui/material';
 
-import Typography from '@/components/typography';
+import Typography from '@/components/Typography/Typography';
 import NotFoundIcon from '@/assets/404.svg';
-import Button from '@/components/button';
+import Button from '@/components/Button/Button';
 import { VOLCANIC_SAND } from '@/constants/colors';
-import Column from '@/components/column';
+import Column from '@/components/Column/Column';
 import { Route } from '@/constants';
 
 const Container = styled(Column)`

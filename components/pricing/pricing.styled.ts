@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Column from '../column';
+import Column from '../Column/Column';
 
 export const Container = styled.div<{ isActive?: boolean }>`
   border: 1px solid ${({ theme }) => theme.colors.pastelLightBlue};

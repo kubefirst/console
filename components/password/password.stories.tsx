@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Meta, StoryObj } from '@storybook/react';
 
-import PasswordComponent from '.';
+import PasswordComponent from './Password';
 
 const Wrapper = styled.div`
   background: rgb(255, 255, 255);

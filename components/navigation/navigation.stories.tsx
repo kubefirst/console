@@ -4,7 +4,7 @@ import { noop } from 'lodash';
 import styled from 'styled-components';
 import { Meta, StoryObj } from '@storybook/react';
 
-import Navigation from './index';
+import Navigation from './Navigation';
 
 const Wrapper = styled.div`
   background: rgb(255, 255, 255);

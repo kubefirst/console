@@ -1,7 +1,7 @@
 import React, { type FunctionComponent, useEffect } from 'react';
 import ReactFlow, { NodeTypes, ReactFlowProvider, useReactFlow } from 'reactflow';
 
-import { CustomGraphNode, GraphNode } from '../graphNode';
+import { CustomGraphNode, GraphNode } from '../GraphNode/GraphNode';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import {
   onConnect,

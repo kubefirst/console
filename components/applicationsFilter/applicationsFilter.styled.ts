@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { styled as muiStyled } from '@mui/material';
 
-import Column from '../column';
-import Autocomplete from '../autocomplete';
-import Row from '../row';
+import Column from '../Column/Column';
+import Autocomplete from '../Autocomplete/Autocomplete';
+import Row from '../Row/Row';
 
 import { PASTEL_LIGHT_BLUE, WHITE } from '@/constants/colors';
 import { media } from '@/utils/media';

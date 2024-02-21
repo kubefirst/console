@@ -19,10 +19,10 @@ import {
 import Ray from '@/assets/ray.svg';
 import TitleDark from '@/assets/titleDark.svg';
 import Vault from '@/assets/vault.svg';
-import Button from '@/components/button';
-import Typography from '@/components/typography';
+import Button from '@/components/Button/Button';
+import Typography from '@/components/Typography/Typography';
 import { VOLCANIC_SAND } from '@/constants/colors';
-import NextLink from '@/components/nextLink';
+import NextLink from '@/components/NextLink/NextLink';
 
 export default function SignIn() {
   const searchParams = useSearchParams();

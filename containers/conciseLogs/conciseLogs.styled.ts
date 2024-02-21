@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import Typography from '../../components/typography';
+import Typography from '../../components/Typography/Typography';
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.libertyBlue};

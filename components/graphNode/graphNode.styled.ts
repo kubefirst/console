@@ -3,10 +3,10 @@ import { typographyClasses } from '@mui/material/Typography';
 import { Handle } from 'reactflow';
 import Image from 'next/image';
 
-import Typography from '../typography';
-import Column from '../column';
-import Row from '../row';
-import Tag from '../tag';
+import Typography from '../Typography/Typography';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import Tag from '../Tag/Tag';
 import { BLUE_REFLECTION, EXCLUSIVE_PLUM } from '../../constants/colors';
 
 import styled, { css } from '@/app/lib/styled-components';

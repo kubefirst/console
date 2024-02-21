@@ -4,7 +4,7 @@ import { noop } from '../../utils/noop';
 import { mapClusterFromRaw } from '../../utils/mapClustersFromRaw';
 import { mockClusterResponse } from '../../tests/mocks/mockClusterResponse';
 
-import { ClusterTable } from './clusterTable';
+import { ClusterTable } from './ClusterTable';
 
 const { managementCluster } = mapClusterFromRaw(mockClusterResponse);
 

@@ -7,7 +7,7 @@ import { RangeBoundaries } from 'instantsearch.js/es/connectors/range/connectRan
 
 import { PORT_GORE, PRIMARY, SALTBOX_BLUE } from '../../constants/colors';
 
-import { SliderContainer, SliderTitle } from './kubefirstContent.styled';
+import { SliderContainer, SliderTitle } from './KubefirstContent.styled';
 
 const Slider = styled(SliderMui)(({ theme }) => ({
   'color': PRIMARY,

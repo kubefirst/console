@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Content } from '../../types/algolia/content';
 
-import ContentHit from '.';
+import ContentHit from './ContentHit';
 
 const meta: Meta<typeof ContentHit> = {
   component: ContentHit,

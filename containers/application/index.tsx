@@ -2,7 +2,7 @@ import React, { FunctionComponent, useCallback, useEffect, useState } from 'reac
 
 import ApplicationComponent, {
   ApplicationProps as AppCompProps,
-} from '../../components/application';
+} from '../../components/Application/Application';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { checkSiteReadiness } from '../../redux/thunks/readiness.thunk';
 

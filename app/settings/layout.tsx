@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 
 import { getEnvVars, getFeatureFlags, validateLicense } from '../lib/common';
 
-import { Layout } from '@/containers/layout';
+import { Layout } from '@/containers/Layout/Layout';
 
 export default async function Page({ children }: PropsWithChildren) {
   const license = await validateLicense();

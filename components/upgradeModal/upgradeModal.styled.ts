@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 import CloseIcon from '@mui/icons-material/Close';
 
-import Column from '../column';
-import Row from '../row';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
 
 import { MIDNIGHT_EXPRESS } from '@/constants/colors';
 

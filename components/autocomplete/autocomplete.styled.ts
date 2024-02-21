@@ -5,7 +5,7 @@ import { TextField as MUITextField, MenuItem as MUIMenuItem } from '@mui/materia
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { LINK_WATER, SPUN_PEARL, WHITE_SMOKE } from '../../constants/colors';
-import Typography from '../typography';
+import Typography from '../Typography/Typography';
 
 export const AutoTextField = muiStyled(MUITextField)(({ theme, error, type, InputProps }) => ({
   '& .MuiOutlinedInput-root': {

@@ -1,6 +1,6 @@
 import { GitProvider, Row } from '../';
 import { AdvancedOptions, InstallationType } from '../redux';
-import { TagColor } from '../../components/tag';
+import { TagColor } from '../../components/Tag/Tag';
 
 export enum ClusterStatus {
   DELETED = 'deleted',

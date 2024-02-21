@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Application from '.';
+import Application from './Application';
 
 import { mockClusterApplication } from '@/tests/mocks/mockClusterApplication';
 

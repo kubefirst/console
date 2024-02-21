@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import ControlledTextField from '../../../../components/controlledFields/TextField';
-import ControlledPassword from '../../../../components/controlledFields/Password';
+import ControlledTextField from '../../../../components/controlledFields/ControlledTextField/ControlledTextField';
+import ControlledPassword from '../../../../components/controlledFields/ControlledPassword';
 import { InstallValues } from '../../../../types/redux';
 
 export const LocalSetupForm: FunctionComponent = () => {

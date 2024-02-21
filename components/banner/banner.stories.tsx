@@ -3,10 +3,10 @@ import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import useToggle from '../../hooks/useToggle';
-import Button from '../button';
-import Typography from '../typography';
+import Button from '../Button/Button';
+import Typography from '../Typography/Typography';
 
-import BannerComponent from '.';
+import BannerComponent from './Banner';
 
 import { WHITE } from '@/constants/colors';
 

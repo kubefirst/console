@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import StatusIndicator from './index';
+import StatusIndicator from './StatusIndicator';
 
 const meta: Meta<typeof StatusIndicator> = {
   component: StatusIndicator,

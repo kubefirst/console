@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import CopyCommand from '.';
+import CopyCommand from './CopyCommand';
 
 const meta: Meta<typeof CopyCommand> = {
   component: CopyCommand,

@@ -10,7 +10,7 @@ import {
   NodeChange,
 } from 'reactflow';
 
-import { CustomGraphNode } from '../../components/graphNode';
+import { CustomGraphNode } from '../../components/GraphNode/GraphNode';
 
 import { setPresentedClusterName } from './api.slice';
 

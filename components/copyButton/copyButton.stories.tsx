@@ -3,7 +3,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
-import CopyButton from '.';
+import CopyButton from './CopyButton';
 
 const Wrapper = styled.div`
   background: rgb(255, 255, 255);

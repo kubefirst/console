@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import NextLink from '.';
+import NextLink from './NextLink';
 
 const meta: Meta<typeof NextLink> = {
   component: NextLink,

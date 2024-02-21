@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import ClusterDetails from '.';
+import ClusterDetails from './ClusterDetails';
 
 import { mockClusterConfig } from '@/tests/mocks/mockClusterConfig';
 import { ClusterStatus, ClusterType } from '@/types/provision';

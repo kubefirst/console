@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { styled as muiStyled } from '@mui/material';
 
-import Column from '../column';
-import Row from '../row';
-import Typography from '../typography';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import Typography from '../Typography/Typography';
 
 import { ECHO_BLUE, MIDNIGHT_EXPRESS, WHITE } from '@/constants/colors';
 

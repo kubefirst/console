@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { mockEnvironmentsResponse } from '../../tests/mocks/mockEnvironmentsResponse';
 import { mapEnvironmentFromRaw } from '../../utils/mapEnvironmentFromRaw';
 
-import DeleteEnvironment from '.';
+import DeleteEnvironment from './DeleteEnvironment';
 
 const mockEnvironments = mockEnvironmentsResponse.map(mapEnvironmentFromRaw);
 

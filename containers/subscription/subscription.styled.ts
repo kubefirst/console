@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import Column from '@/components/column';
+import Column from '@/components/Column/Column';
 
 export const Container = styled(Column)`
   margin: 40px;

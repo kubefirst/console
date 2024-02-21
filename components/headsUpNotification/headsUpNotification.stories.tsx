@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import HeadsUpNotification from '.';
+import HeadsUpNotification from './HeadsUpNotification';
 
 const meta: Meta<typeof HeadsUpNotification> = {
   title: 'Components/HeadsUpNotification',

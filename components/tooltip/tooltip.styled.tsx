@@ -4,7 +4,7 @@ import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 
 import { BISCAY } from '../../constants/colors';
 
-import { ITooltipProps } from '.';
+import { ITooltipProps } from './Tooltip';
 
 export const StyledTooltip = muiStyled(({ className, ...rest }: ITooltipProps) => (
   <Tooltip {...rest} arrow classes={{ popper: className }} />

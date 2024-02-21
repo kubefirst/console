@@ -2,11 +2,11 @@
 import styled from 'styled-components';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
-import Column from '../column';
-import NextLinkComp from '../nextLink';
-import Row from '../row';
-import Typography from '../typography';
-import TextFieldWithRef from '../textField';
+import Column from '../Column/Column';
+import NextLinkComp from '../NextLink/NextLink';
+import Row from '../Row/Row';
+import Typography from '../Typography/Typography';
+import TextFieldWithRef from '../TextField/TextField';
 
 import { LAUGHING_ORANGE, VOLCANIC_SAND } from '@/constants/colors';
 

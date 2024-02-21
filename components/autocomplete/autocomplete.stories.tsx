@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-import AutoComplete from './index';
+import AutoComplete from './Autocomplete';
 
 const meta: Meta<typeof AutoComplete> = {
   component: AutoComplete,

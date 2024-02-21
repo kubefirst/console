@@ -2,9 +2,9 @@
 import styled from 'styled-components';
 import { styled as muiStyled, Box } from '@mui/material';
 
-import Row from '@/components/row';
-import Column from '@/components/column';
-import HeadsUpNotification from '@/components/headsUpNotification';
+import Row from '@/components/Row/Row';
+import Column from '@/components/Column/Column';
+import HeadsUpNotification from '@/components/HeadsUpNotification/HeadsUpNotification';
 import { CHEFS_HAT } from '@/constants/colors';
 
 export const CloseButton = styled.button`

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { GitProvider } from '../../types';
 
-import GitProviderButton from '.';
+import GitProviderButton from './GitProviderButton';
 
 const meta: Meta<typeof GitProviderButton> = {
   component: GitProviderButton,

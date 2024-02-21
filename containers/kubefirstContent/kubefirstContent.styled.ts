@@ -2,7 +2,7 @@
 import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
-import Typography from '../../components/typography';
+import Typography from '../../components/Typography/Typography';
 
 export const Body = styled.div`
   display: flex;

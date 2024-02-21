@@ -6,8 +6,8 @@ import ErrorIcon from '@mui/icons-material/Error';
 import styled from 'styled-components';
 
 import { LIGHT_GREY, VOLCANIC_SAND } from '../../constants/colors';
-import Typography from '../typography';
-import Column from '../column';
+import Typography from '../Typography/Typography';
+import Column from '../Column/Column';
 
 export const Container = styled(Column)``;
 

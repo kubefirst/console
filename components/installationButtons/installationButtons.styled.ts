@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import Row from '../row';
+import Row from '../Row/Row';
 
 export const Container = styled(Row)`
   align-items: center;

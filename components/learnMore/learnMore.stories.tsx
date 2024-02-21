@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { InstallationType } from '../../types/redux';
 
-import LearnMore from '.';
+import LearnMore from './LearnMore';
 
 const meta: Meta<typeof LearnMore> = {
   title: 'Components/LearnMore',

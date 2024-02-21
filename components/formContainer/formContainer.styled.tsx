@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Column from '../column';
+import Column from '../Column/Column';
 
 export const Container = styled(Column)`
   background-color: ${({ theme }) => theme.colors.white};

@@ -2,8 +2,7 @@
 import styled from 'styled-components';
 import { Avatar as AvatarMui, Box } from '@mui/material';
 
-import row from '../../components/row';
-
+import row from '@/components/Row/Row';
 import { CHEFS_HAT } from '@/constants/colors';
 
 export const Avatar = styled(AvatarMui)`

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { mockEnvironmentsResponse } from '../../tests/mocks/mockEnvironmentsResponse';
 import { createEnvMap } from '../../utils/createEnvMap';
 
-import { CreateEnvironmentMenu } from '.';
+import { CreateEnvironmentMenu } from './CreateEnvironmentMenu';
 
 const mockEnvironments = createEnvMap(mockEnvironmentsResponse);
 

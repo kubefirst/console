@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 import { styled as muiStyled } from '@mui/material';
 
-import Column from '../column';
-import Typography from '../typography';
+import Column from '../Column/Column';
+import Typography from '../Typography/Typography';
 
 import { media } from '@/utils/media';
 

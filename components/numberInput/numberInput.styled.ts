@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-import Row from '../row';
+import Row from '../Row/Row';
 import { DANGER } from '../../constants/colors';
 
 export const Asterisk = styled.span`

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import UninstallApplication from '.';
+import UninstallApplication from './UninstallApplication';
 
 const meta: Meta<typeof UninstallApplication> = {
   title: 'Components/UninstallApplication',

@@ -2,11 +2,11 @@
 import styled from 'styled-components';
 import { styled as muiStyled } from '@mui/material';
 
-import Typography from '../typography';
+import Typography from '../Typography/Typography';
 import { textTruncate } from '../../utils/theme';
 import { CHEFS_HAT, DR_WHITE, VOLCANIC_SAND } from '../../constants/colors';
-import Row from '../row';
-import Column from '../column';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
 export const App = styled(Row)`
   align-items: center;

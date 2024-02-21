@@ -5,10 +5,10 @@ import Joyride, { Step } from 'react-joyride';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import Button from '../../components/button';
+import Button from '../Button/Button';
 import useModal from '../../hooks/useModal';
 
-import TourModal from './index';
+import TourModal from './TourModal';
 
 import kubefirstRay from '@/assets/ray.svg';
 

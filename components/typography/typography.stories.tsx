@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 
 import { typographies } from '../../theme/muiTheme';
 
-import Typography, { Variant } from './index';
+import Typography, { Variant } from './Typography';
 
 const meta: Meta<typeof Typography> = {
   title: 'Layout/Typography',

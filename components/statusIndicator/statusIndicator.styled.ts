@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Row from '@/components/row';
+import Row from '@/components/Row/Row';
 
 export const AvailabilityIdicator = styled.div`
   border-radius: 50%;

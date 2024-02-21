@@ -8,18 +8,18 @@ import { capitalize } from 'lodash';
 import { setInstallationStep } from '@/redux/slices/installation.slice';
 import { clearDomains } from '@/redux/slices/api.slice';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
-import ControlledPassword from '@/components/controlledFields/Password';
+import ControlledPassword from '@/components/controlledFields/ControlledPassword';
 import {
   getCloudDomains,
   getCloudRegions,
   getInstanceSizes,
   getRegionZones,
 } from '@/redux/thunks/api.thunk';
-import ControlledTextField from '@/components/controlledFields/TextField';
-import ControlledAutocomplete from '@/components/controlledFields/autoComplete/AutoComplete';
-import Column from '@/components/column';
-import Typography from '@/components/typography';
-import ControlledCheckbox from '@/components/controlledFields/checkbox';
+import ControlledTextField from '@/components/controlledFields/ControlledTextField/ControlledTextField';
+import ControlledAutocomplete from '@/components/controlledFields/ControlledAutocomplete/ControlledAutocomplete';
+import Column from '@/components/Column/Column';
+import Typography from '@/components/Typography/Typography';
+import ControlledCheckbox from '@/components/controlledFields/ControlledCheckbox/ControlledCheckbox';
 import {
   EMAIL_REGEX,
   LOWER_KEBAB_CASE_REGEX,
@@ -29,7 +29,7 @@ import {
 import { InstallValues, InstallationType } from '@/types/redux';
 import { EXCLUSIVE_PLUM } from '@/constants/colors';
 import { BISCAY } from '@/constants/colors';
-import ControlledNumberInput from '@/components/controlledFields/numberInput';
+import ControlledNumberInput from '@/components/controlledFields/ControlledNumberInput/ControlledNumberInput';
 
 const CLOUD_REGION_LABELS: Record<InstallationType, string | null> = {
   [InstallationType.AWS]: 'Cloud region',

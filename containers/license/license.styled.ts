@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import FormContainerComponent from '@/components/formContainer';
+import FormContainerComponent from '@/components/FormContainer/FormContainer';
 
 export const FormContainer = styled(FormContainerComponent)<{ hasMargin: boolean }>`
   border-radius: 8px;

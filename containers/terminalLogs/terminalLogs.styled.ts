@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 
 import { media } from '@/utils/media';
-import Column from '@/components/column';
+import Column from '@/components/Column/Column';
 
 export const Container = styled.div`
   align-items: flex-start;
