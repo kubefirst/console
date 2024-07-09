@@ -44,8 +44,8 @@ export const INFO_INSTALLATION_TYPES: Record<InstallationType, Record<number, In
       title: 'AWS Prerequisites',
       description: [
         'Create an AWS account with billing enabled.',
-        'Establish a public hosted zone with dns routing established(<a href="https://docs.aws.amazon.com/route53/" target="_blank">docs</a>).',
-        'Connect with AdministratorAccess IAM credentials to your AWS account (docs).',
+        'Establish a public hosted zone with dns routing established (<a href="https://docs.aws.amazon.com/route53/" target="_blank">docs</a>).',
+        'Connect with AdministratorAccess IAM credentials to your AWS account (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html#access-keys-and-secret-access-keys" target="_blank">docs</a>).',
       ],
       ctaDescription: 'Learn more',
       ctaLink: 'https://docs.aws.amazon.com',
@@ -121,8 +121,8 @@ export const INFO_MARKETPLACE_INSTALLATION_TYPES: Record<
       title: 'AWS Prerequisites',
       description: [
         'Create an AWS account with billing enabled.',
-        'Establish a public hosted zone with dns routing established(<a href="https://docs.aws.amazon.com/route53/" target="_blank">docs</a>).',
-        'Connect with AdministratorAccess IAM credentials to your AWS account (docs).',
+        'Establish a public hosted zone with dns routing established (<a href="https://docs.aws.amazon.com/route53/" target="_blank">docs</a>).',
+        'Connect with AdministratorAccess IAM credentials to your AWS account (<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html#access-keys-and-secret-access-keys" target="_blank">docs</a>).',
       ],
       ctaDescription: 'Learn more',
       ctaLink: 'https://docs.aws.amazon.com',
