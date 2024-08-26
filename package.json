@@ -78,7 +78,7 @@
     "@storybook/nextjs": "^7.6.17",
     "@storybook/react": "^7.6.17",
     "@storybook/testing-library": "^0.2.2",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/eventsource": "^1.1.11",
