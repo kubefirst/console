@@ -93,7 +93,7 @@
     "assert": "^2.0.0",
     "babel-loader": "^8.2.5",
     "buffer": "^6.0.3",
-    "cypress": "^12.17.1",
+    "cypress": "^13.14.0",
     "dotenv": "^16.3.1",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
