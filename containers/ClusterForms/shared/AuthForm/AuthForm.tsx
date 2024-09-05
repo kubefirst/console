@@ -43,12 +43,12 @@ import { hasProjectId } from '@/utils/hasProjectId';
 import { getDigitalOceanUser } from '@/redux/thunks/digitalOcean.thunk';
 import { GIT_PROVIDER_DISPLAY_NAME } from '@/constants';
 import { useDebouncedPromise } from '@/hooks/useDebouncedPromise';
+import { setadminteamname, setdeveloperteamname, setgitreponame, setmetaphorname } from '@/redux/slices/git.slice';
 
 const AuthForm: FunctionComponent = () => {
   const [showGoogleKeyFile, setShowGoogleKeyFile] = useState(false);
 
   const dispatch = useAppDispatch();
-
   const {
     gitProvider,
     githubUser,
@@ -60,7 +60,11 @@ const AuthForm: FunctionComponent = () => {
     isGitSelected,
     installMethod,
     token = '',
-  } = useAppSelector(({ config, installation, git, digitalOcean }) => ({
+    gitopsreponame,
+    metaphorreponame,
+    adminteamname,
+    developerteamname
+  } = useAppSelector(({ config, installation, git, digitalOcean, }) => ({
     currentStep: installation.installationStep,
     installationType: installation.installType,
     gitProvider: installation.gitProvider,
@@ -69,6 +73,10 @@ const AuthForm: FunctionComponent = () => {
     installMethod: config.installMethod,
     ...git,
     ...digitalOcean,
+    gitopsreponame: git.gitopsreponame,
+    metaphorreponame: git.metaphorreponame,
+    adminteamname: git.adminteamname,
+    developerteamname: git.developerteamname
   }));
 
   const { apiKeyInfo } = useInstallation(
@@ -132,6 +140,22 @@ const AuthForm: FunctionComponent = () => {
     },
     [isGitHub, dispatch, setError, clearErrors, resetField],
   );
+  const handleGitrepochange= (e: { target: { value: string; }; }) =>{
+    dispatch(setgitreponame(e.target.value))
+  };
+
+  const handleMetachange= (e: { target: { value: string; }; }) => {
+    dispatch(setmetaphorname(e.target.value))
+  };
+
+  const handleAdminchange= (e: { target: { value: any; }; }) => {
+    dispatch(setadminteamname(e.target.value))
+  };
+
+  const handleDeveloperchange= (e: { target: { value: any; }; }) => {
+    dispatch(setdeveloperteamname(e.target.value))
+  };
+
 
   const handleGitProviderChange = (provider: GitProvider) => {
     reset({ gitToken: '', gitOwner: '' });
@@ -263,7 +287,8 @@ const AuthForm: FunctionComponent = () => {
         </GitFieldsContainer>
 
         {isGitHub ? (
-          <ControlledAutocomplete
+          <div>
+            <ControlledAutocomplete
             control={control}
             required
             name="gitOwner"
@@ -277,6 +302,14 @@ const AuthForm: FunctionComponent = () => {
             label={`${gitLabel} organization name`}
             onClick={() => trigger('gitToken', { shouldFocus: true })}
           />
+          <input value={gitopsreponame} onChange={handleGitrepochange}></input>
+          <input value={metaphorreponame} onChange={handleMetachange}></input>
+          <input value={adminteamname} onChange={handleAdminchange}></input>
+          <input value={developerteamname} onChange={handleDeveloperchange}></input>
+          {/* <input value=></input> */}
+          </div>
+          
+          
         ) : (
           <ControlledAutocomplete
             control={control}
@@ -292,6 +325,8 @@ const AuthForm: FunctionComponent = () => {
             onClick={() => trigger('gitToken', { shouldFocus: true })}
           />
         )}
+
+
         {installationType === InstallationType.GOOGLE && (
           <>
             <Column style={{ gap: '10px' }}>

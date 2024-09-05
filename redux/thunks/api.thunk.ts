@@ -31,6 +31,7 @@ export const createCluster = createAsyncThunk<
 >('api/cluster/provisioning', async (_, { getState }) => {
   const {
     installation: { installType, gitProvider, values },
+    git
   } = getState();
 
   const params = {
@@ -42,7 +43,11 @@ export const createCluster = createAsyncThunk<
     subdomain_name: values?.subDomain,
     git_provider: gitProvider,
     gitops_template_url: values?.gitopsTemplateUrl,
-    gitops_template_branch: values?.gitopsTemplateBranch,
+    gitops_template_branch: "feat-custom-repo",
+    gitopsRepoName: git.gitopsreponame,
+    metaphorRepoName: git.metaphorreponame,
+    adminTeamName: git.adminteamname,
+    developerTeamName: git.developerteamname,
     git_protocol: values?.useHttps ? GitProtocol.HTTPS : GitProtocol.SSH,
     dns_provider: values?.dnsProvider,
     ecr: values?.imageRepository === ImageRepository.ECR,

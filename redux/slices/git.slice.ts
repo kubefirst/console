@@ -15,12 +15,17 @@ import { GitLabGroup, GitLabUser } from '@/types/gitlab';
 import { KUBEFIRST_REPOSITORIES, KUBEFIRST_TEAMS } from '@/constants';
 import { createGitOrgErrorMessage } from '@/utils/createGitOrgErrorMessage';
 import { GitProvider } from '@/types';
+import { action } from '@storybook/addon-actions/*';
 
 export interface GitState {
   githubUser: GithubUser | null;
   githubUserOrganizations: Array<GithubUserOrganization>;
   gitlabUser: GitLabUser | null;
   gitlabGroups: Array<GitLabGroup>;
+  gitopsreponame: string;
+  metaphorreponame: string;
+  adminteamname: string;
+  developerteamname: string;
   isLoading: boolean;
   isTokenValid: boolean;
   errors: Array<string>;
@@ -36,6 +41,10 @@ export const initialState: GitState = {
   gitlabUser: null,
   gitlabGroups: [],
   isLoading: false,
+  gitopsreponame:"gitops",
+  metaphorreponame:"metaphor",
+  adminteamname:"admins",
+  developerteamname:"developers",
   isTokenValid: false,
   errors: [],
 };
@@ -68,6 +77,18 @@ const gitSlice = createSlice({
     clearResponseError: (state) => {
       state.responseError = undefined;
     },
+    setgitreponame :(state,action)=>{
+      state.gitopsreponame = action.payload;
+    },
+    setmetaphorname : (state,action)=>{
+        state.metaphorreponame = action.payload;
+    },
+    setadminteamname : (state,action)=>{
+      state.adminteamname=action.payload;
+    },
+    setdeveloperteamname : (state,action)=>{
+      state.developerteamname=action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -111,8 +132,9 @@ const gitSlice = createSlice({
         getGitHubOrgRepositories.fulfilled,
         (state, { meta, payload: organizationRepos }) => {
           state.gitOwner = meta.arg.organization;
+          const repos = [state.gitopsreponame,state.metaphorreponame];
           const kubefirstRepos = organizationRepos.filter(({ name }) =>
-            KUBEFIRST_REPOSITORIES.includes(name),
+            repos.includes(name),
           );
           if (kubefirstRepos.length) {
             state.errors.push(
@@ -135,8 +157,9 @@ const gitSlice = createSlice({
       })
       .addCase(getGitHubOrgTeams.fulfilled, (state, { payload: organizationTeams }) => {
         state.isLoading = false;
+        const teams = [state.adminteamname,state.metaphorreponame];
         const kubefirstTeams = organizationTeams.filter(({ name }) =>
-          KUBEFIRST_TEAMS.includes(name),
+          teams.includes(name),
         );
 
         if (kubefirstTeams.length) {
@@ -234,7 +257,7 @@ const gitSlice = createSlice({
   },
 });
 
-export const { clearGitState, clearUserError, setIsGitSelected, clearResponseError, setGitOwner } =
+export const { clearGitState, clearUserError, setIsGitSelected, clearResponseError, setGitOwner, setadminteamname, setdeveloperteamname, setmetaphorname,setgitreponame } =
   gitSlice.actions;
 
 export const gitReducer = gitSlice.reducer;

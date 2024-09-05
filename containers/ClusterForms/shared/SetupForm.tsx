@@ -69,7 +69,7 @@ const SetupForm: FunctionComponent = () => {
     formState: { errors },
     watch,
   } = useFormContext<InstallValues>();
-
+  console.log(cloudRegions);
   const [domainName, subDomain, dnsProvider, cloudRegion, cloudflareToken, cloudZone] = watch([
     'domainName',
     'subDomain',

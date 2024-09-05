@@ -5,7 +5,6 @@ import { createWrapper } from 'next-redux-wrapper';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage/session';
 import { getPersistConfig } from 'redux-deep-persist';
-
 import { consoleApi } from './api';
 import {
   apiReducer,
